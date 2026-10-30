@@ -103,7 +103,7 @@ def compute_alignment(args):
     
 
     for layer in range(layer_num):
-        for idx in range(900):
+        for idx in range(10):
      
 
             cs_11_lasttoken = cosine_similarity(english_choice1_formatted_lasttoken[layer][idx+1], lang_choice1_formatted_lasttoken[layer][idx+1])
