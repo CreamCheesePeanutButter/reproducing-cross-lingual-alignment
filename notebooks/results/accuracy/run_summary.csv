@@ -1,0 +1,9 @@
+dataset,model,language,status,exit_code
+belebele,Llama3.1,eng_Latn,FAILED,2
+belebele,Llama3.1,fra_Latn,FAILED,2
+belebele,Llama3.1,deu_Latn,FAILED,2
+belebele,Llama3.1,hin_Deva,FAILED,2
+belebele,Llama3.1,ita_Latn,FAILED,2
+belebele,Llama3.1,por_Latn,FAILED,2
+belebele,Llama3.1,spa_Latn,FAILED,2
+belebele,Llama3.1,tha_Thai,FAILED,2
