@@ -86,6 +86,7 @@ def main():
             # Check if the language is in the specified list (if provided)
             language_name = language.split('_')[0]  # Extract the language name before the underscore
             if languages_to_process and language_name not in languages_to_process:
+                print(f'Skipping language: {language_name}')
                 continue  # Skip this language if it's not in the specified list
             print(f'Extracting language: {language}')
             sentences = []
