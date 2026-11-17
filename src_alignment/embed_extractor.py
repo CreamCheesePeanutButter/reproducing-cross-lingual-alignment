@@ -74,7 +74,7 @@ def main():
 
     # Languages to process
     if args.languages:
-        languages_to_process = set(args.languages).split(" ")  # Convert to a set for faster lookup
+        languages_to_process = set(args.languages)  # Convert to a set for faster lookup
     else:
         languages_to_process = None  # Process all languages if not specified
     print(languages_to_process)
