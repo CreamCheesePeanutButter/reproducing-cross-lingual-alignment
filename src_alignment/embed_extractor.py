@@ -77,7 +77,7 @@ def main():
         languages_to_process = set(args.languages)
     else:
         languages_to_process = None  # Process all languages if not specified
-
+    print(languages_to_process)
     # Process the files in the directory
     for filename in os.listdir(directory):
         if filename.endswith(args.file_ext):
