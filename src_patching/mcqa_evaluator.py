@@ -377,7 +377,7 @@ Examples:
         """
     )
 
-    parser.add_argument(
+    add_argument(
         '--dataset',
         type=str,
         required=True,
@@ -388,7 +388,7 @@ Examples:
         '--llm_name',
         type=str,
         default='Llama3.1',
-        choices=['Llama3.1', 'Llama3.1it', 'Aya23', 'Qwen2.5'],
+        choices=[MCQAEvaluator.LLM_DICT.keys()],
         help='Name of the LLM to use'
     )
     parser.add_argument(
