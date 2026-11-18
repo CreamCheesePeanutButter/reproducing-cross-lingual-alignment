@@ -377,7 +377,7 @@ Examples:
         """
     )
 
-    add_argument(
+    parser.add_argument(
         '--dataset',
         type=str,
         required=True,
