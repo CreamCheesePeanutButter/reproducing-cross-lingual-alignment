@@ -15,7 +15,13 @@ def compute_alignment(args):
     
     '''
     
-    layer_num = 32 if args.llm_name in ['Llama3.1', 'Llama3.1_it', 'Aya23'] else 27
+    layer_num = 32
+    if (args.llm_name in ['Llama3.1', 'Llama3.1_it', 'Aya23']):
+        layer_num = 32
+    elif (args.llm_name == 'Llama3.2-1B'):
+        layer_num = 16
+    else:
+        layer_num = 27
     with open(os.path.join(args.embedding_path, "eng_Latn_choice1.pkl"), "rb") as pickle_file:
         english_choice1 = pickle.load(pickle_file)
     with open(os.path.join(args.embedding_path, "eng_Latn_choice2.pkl"), "rb") as pickle_file:
