@@ -388,7 +388,7 @@ Examples:
         '--llm_name',
         type=str,
         default='Llama3.1',
-        choices=[MCQAEvaluator.LLM_DICT.keys()],
+        choices=list(MCQAEvaluator.LLM_DICT.keys()),
         help='Name of the LLM to use'
     )
     parser.add_argument(
