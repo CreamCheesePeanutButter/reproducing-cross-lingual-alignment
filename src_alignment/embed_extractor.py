@@ -49,7 +49,7 @@ def main():
     parser.add_argument('--token', type=str, default=None, help='Hugging Face token (optional).')
     parser.add_argument('--cache_dir', type=str, help='Directory for caching the model (optional).')
     parser.add_argument('--file_ext', type=str, help='File extension for input files (optional, default: .txt).')
-
+    parser.add_argument('--languages', type=str, nargs='+', help='List of languages to process (optional).')
     # Parse the arguments
     args = parser.parse_args()
 
@@ -72,11 +72,22 @@ def main():
     # Initialize a dictionary to store embeddings
     result_dict = {}
 
+    # Languages to process
+    if args.languages:
+        languages_to_process = set(args.languages)  # Convert to a set for faster lookup
+    else:
+        languages_to_process = None  # Process all languages if not specified
+    print(languages_to_process)
     # Process the files in the directory
     for filename in os.listdir(directory):
         if filename.endswith(args.file_ext):
             language = filename.split('.')[0]
             filepath = os.path.join(directory, filename)
+            # Check if the language is in the specified list (if provided)
+            language_name = language.split('_')[0]  # Extract the language name before the underscore
+            if languages_to_process and language_name not in languages_to_process:
+                print(f'Skipping language: {language_name}')
+                continue  # Skip this language if it's not in the specified list
             print(f'Extracting language: {language}')
             sentences = []
             with open(filepath, 'r', encoding='utf-8') as file:

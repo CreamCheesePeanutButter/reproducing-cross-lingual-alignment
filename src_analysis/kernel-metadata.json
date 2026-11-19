@@ -1,0 +1,16 @@
+{
+  "id": "peanutbutter111/exp1_alignment",
+  "title": "exp1_alignment",
+  "code_file": "exp1_alignment.py",
+  "language": "python",
+  "kernel_type": "script",
+  "is_private": "true",
+  "enable_gpu": "false",
+  "enable_tpu": "false",
+  "enable_internet": "true",
+  "machine_shape": "NvidiaTeslaT4", 
+  "dataset_sources": [],
+  "competition_sources": [],
+  "kernel_sources": [],
+  "model_sources": []
+}

@@ -15,6 +15,13 @@ def compute_alignment(args):
     
     '''
     layer_num = 32
+    if (args.llm_name in ['Llama3.1', 'Llama3.1_it', 'Aya23']):
+        layer_num = 32
+    elif (args.llm_name == 'Llama3.2-1B'):
+        layer_num = 17
+    else:
+        layer_num = 27
+
     with open(os.path.join(args.embedding_path, "eng_Latn_choice1.pkl"), "rb") as pickle_file:
         english_choice1 = pickle.load(pickle_file)
 
@@ -101,9 +108,7 @@ def compute_alignment(args):
 
 
     for layer in range(layer_num):
-        for idx in range(900):
-            
-
+        for idx in range(300):
             cs_11_lasttoken = cosine_similarity(english_choice1_formatted_lasttoken[layer][idx+1], lang_choice1_formatted_lasttoken[layer][idx+1])
             cs_22_lasttoken = cosine_similarity(english_choice2_formatted_lasttoken[layer][idx+1], lang_choice2_formatted_lasttoken[layer][idx+1])
             cs_33_lasttoken = cosine_similarity(english_choice3_formatted_lasttoken[layer][idx+1], lang_choice3_formatted_lasttoken[layer][idx+1])
