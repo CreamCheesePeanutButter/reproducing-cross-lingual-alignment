@@ -189,6 +189,7 @@ class MCQAEvaluator:
     LLM_DICT = {
         'Llama3.1': "meta-llama/Meta-Llama-3.1-8B",
         'Llama3.1it': 'meta-llama/Llama-3.1-8B-Instruct',
+        'Llama3.2-1B': 'meta-llama/Llama-3.2-1B',
         'Aya23': 'CohereForAI/aya-23-8B',
         'Qwen2.5': 'Qwen/Qwen2.5-1.5B'
     }
@@ -387,7 +388,7 @@ Examples:
         '--llm_name',
         type=str,
         default='Llama3.1',
-        choices=['Llama3.1', 'Llama3.1it', 'Aya23', 'Qwen2.5'],
+        choices=list(MCQAEvaluator.LLM_DICT.keys()),
         help='Name of the LLM to use'
     )
     parser.add_argument(
