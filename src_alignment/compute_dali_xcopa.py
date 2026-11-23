@@ -15,10 +15,12 @@ def compute_alignment(args):
 
     '''
     layer_num = 32
+    sample = 500
     if (args.llm_name in ['Llama3.1', 'Llama3.1_it', 'Aya23']):
         layer_num = 32
     elif (args.llm_name == 'Llama3.2-1B'):
         layer_num = 17
+        sample = 167
     else:
         layer_num = 27
     with open(os.path.join(args.embedding_path, f"english{args.lang}_choice1.pkl"), "rb") as pickle_file:
@@ -65,7 +67,7 @@ def compute_alignment(args):
 
 
     for layer in range(layer_num):
-        for idx in range(500):
+        for idx in range(sample):
             cs_11_lasttoken = cosine_similarity(english_choice1_formatted_lasttoken[layer][idx+1], lang_choice1_formatted_lasttoken[layer][idx+1])
             cs_22_lasttoken = cosine_similarity(english_choice2_formatted_lasttoken[layer][idx+1], lang_choice2_formatted_lasttoken[layer][idx+1])
 

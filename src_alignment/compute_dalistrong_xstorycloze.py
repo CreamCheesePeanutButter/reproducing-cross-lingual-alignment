@@ -35,10 +35,12 @@ def compute_alignment(args):
     
     '''
     layer_num = 32
+    samples = 1511
     if (args.llm_name in ['Llama3.1', 'Llama3.1_it', 'Aya23']):
         layer_num = 32
     elif (args.llm_name == 'Llama3.2-1B'):
         layer_num = 17
+        samples = 504
     else:
         layer_num = 27
         
@@ -93,7 +95,7 @@ def compute_alignment(args):
 
 
     for layer in range(layer_num):
-        for idx in range(1511):
+        for idx in range(samples):
             cs_11_lasttoken= cosine_similarity(eng_choice1_formatted_lasttoken[layer][idx+1], lang_choice1_formatted_lasttoken[layer][idx+1])
             cs_22_lasttoken= cosine_similarity(eng_choice2_formatted_lasttoken[layer][idx+1], lang_choice2_formatted_lasttoken[layer][idx+1])
             
